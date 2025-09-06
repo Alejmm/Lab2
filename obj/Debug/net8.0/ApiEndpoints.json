@@ -1,0 +1,28 @@
+[
+  {
+    "ContainingType": "TuProyecto.Controllers.FileController",
+    "Method": "GuardarTexto",
+    "RelativePath": "api/File",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "texto",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "TuProyecto.Controllers.FileController",
+    "Method": "ObtenerTexto",
+    "RelativePath": "api/File",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  }
+]
