@@ -20,7 +20,7 @@
 ---
 
 ## Resumen Ejecutivo
-Aplicación web para gestión de torneos y partidos de baloncesto: administración de equipos y jugadores, programación de encuentros torneos y amisotos, control en tiempo real (marcador, faltas, tiempos, cuartos), historial y estadísticas. Arquitectura **Angular 20** + **API REST .NET 8** + **SQL Server**. Despliegue con **Docker** e instalación en **VPS**. Seguridad basada en **JWT**.
+Aplicación web para gestión de torneos y partidos de baloncesto: administración de equipos y jugadores, programación de encuentros torneos y amistosos, control en tiempo real (marcador, faltas, tiempos, cuartos), historial y estadísticas. Arquitectura **Angular 20** + **API REST .NET 8** + **SQL Server**. Despliegue con **Docker** e instalación en **VPS**. Seguridad basada en **JWT**.
 
 **Dominio registrado: basketmarcador.online**
 
@@ -62,7 +62,6 @@ Capas:
 Presentación ,
 Aplicación/Lógica (API ASP.NET Core, monolito modular),
 Datos (SQL Server).
-Comunicación: HTTP/JSON con JWT Bearer (RESTful).
 Despliegue: Contenedores Docker; 
 
 ---
@@ -75,7 +74,7 @@ Despliegue: Contenedores Docker;
 - **Gestión de Torneos**: nombre, temporada, estado; **Rondas** (ej.: fase, semifinal, final).
 - **Gestión de Partidos**: amistosos y de torneo; asignación de equipos, ronda, fecha/hora y estado.
 - **Control del Partido**: marcador + reloj + periodos + faltas + tiempos fuera.
-- **Historial**: listado, filtros multi-criterio y exportación CSV.
+- **Historial**: listado, filtros.
 
 ### No funcionales
 - **Disponibilidad** ≥ 99% (objetivo en horario hábil).
@@ -102,38 +101,16 @@ Despliegue: Contenedores Docker;
 
 ## Arquitectura Técnica
 ### Tecnologías
-- **Frontend**: Angular 20, TypeScript, RxJS, Angular Material (selectivo), SCSS.
-- **Backend**: .NET 8, ASP.NET Core, EF Core, AutoMapper, FluentValidation, Swagger.
+- **Frontend**: Angular 20, TypeScript, Angular Material, SCSS.
+- **Backend**: .NET 8, ASP.NET Core, EF Core..
 - **BD**: SQL Server 2022.
 - **Infra**: Docker, Nginx .
-
-```
-
-### appsettings.json (plantilla)
-```json
-{
-  "JWT": {
-    "Issuer": "https://api.marcador.local",
-    "Audience": "https://app.marcador.local",
-    "Key": "Reemplace_Esta_Clave_Segura",
-    "ExpiresMinutes": 120
-  },
-  "CORS": {
-    "AllowedOrigins": ["http://localhost:4200"]
-  },
-  "Logging": {
-    "LogLevel": { "Default": "Information", "Microsoft.AspNetCore": "Warning" }
-  }
-}
-```
 ---
 
 ## API Backend (.NET 8 + EF Core)
 **Base URL**: `/api`
 
 **Códigos y errores estándar**: 200, 201, 204, 400 (validación), 401 (no autenticado), 403 (sin permisos), 404 (no encontrado), 409 (conflicto), 422 (semántico), 500 (interno).
-
-**Swagger UI**: `/swagger`
 
 ### Migraciones EF Core
 ```bash
@@ -182,7 +159,6 @@ ng build --configuration production
 - **CORS** restringido a orígenes conocidos.
 - **TLS**: HSTS, redirección 80→443, TLS1.2+.
 - **Roles** en claims; autorización por **policy**.
-- **OWASP Top 10**: validaciones server-side, rate limiting básico en login, sanitización.
 
 ---
 
