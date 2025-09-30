@@ -23,6 +23,7 @@
 Aplicación web para gestión de torneos y partidos de baloncesto: administración de equipos y jugadores, programación de encuentros torneos y amisotos, control en tiempo real (marcador, faltas, tiempos, cuartos), historial y estadísticas. Arquitectura **Angular 20** + **API REST .NET 8** + **SQL Server**. Despliegue con **Docker** e instalación en **VPS**. Seguridad basada en **JWT**.
 
 **Dominio registrado: basketmarcador.online**
+**IP Pública 91.99.197.226**
 
 **Clonar Repositorios**
 - Repositorio Frontend: https://github.com/sofiaMorales3805/MarcadorAngularFront.git
